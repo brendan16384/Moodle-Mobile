@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, ScrollView, View, Text, TextInput, Image, Button, StyleSheet, Alert } from 'react-native';
 import React from 'react';
 import { useNavigation } from "@react-navigation/native";

@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, View, Text, TextInput, Image, Button, StyleSheet, Alert } from 'react-native';
 import React from 'react';
 import { useNavigation } from "@react-navigation/native";
@@ -9,13 +8,12 @@ export default function LogIn() {
   const navigation = useNavigation();
 
   function attemptLogIn(){
-    //if((username.toLowerCase()=="username") && (password.toLowerCase()=="password")){
-    //    navigation.navigate('Dashboard');
-    //}
-    //else{
-    //    Alert.alert('Incorrect Log In','hint: try username and password')
-    //}
-    navigation.navigate('Dashboard');
+    if((username.toLowerCase()=="username") && (password.toLowerCase()=="password")){
+        navigation.navigate('Dashboard');
+    }
+    else{
+        Alert.alert('Incorrect Log In','hint: try username and password')
+    }
   }
 
   return (
@@ -30,13 +28,13 @@ export default function LogIn() {
         <TextInput 
           placeholder="password"
           onChangeText={text => setPassword(text)}
+          secureTextEntry={true}
         />
         <Button
           title='Log In'
           onPress={() => attemptLogIn()}
         />
       </View>
-      <StatusBar style="auto" />
     </SafeAreaView>
   )
 }
